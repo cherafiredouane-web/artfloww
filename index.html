@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2eb">
+  <meta name="description" content="ARTFLOW — Tableaux uniques, émotions infinies. Découvrez des œuvres pour donner une âme à vos espaces.">
+  <title>ARTFLOW — Tableaux uniques, émotions infinies</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="announcement"><span data-i18n="announcement">L’art qui donne une nouvelle âme à vos espaces.</span><span class="announcement-mark">✳</span></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="ARTFLOW home"><img src="assets/artflow-logo.svg" alt="ARTFLOW"></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#home" data-i18n="navHome">Accueil</a>
+      <a href="#artworks" data-i18n="navArtworks">Toutes les œuvres</a>
+      <a href="#collections" data-i18n="navCollections">Collections</a>
+      <a href="#categories" data-i18n="navCategories">Catégories</a>
+      <a href="#about" data-i18n="navAbout">À propos</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button search-toggle" id="searchToggle" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button>
+      <button class="icon-button favorite-toggle" id="favoritesToggle" aria-label="Favorites"><svg viewBox="0 0 24 24"><path d="M20.4 8.8c0 5.2-8.4 10.1-8.4 10.1S3.6 14 3.6 8.8A4.5 4.5 0 0 1 12 6.5a4.5 4.5 0 0 1 8.4 2.3Z"></path></svg><span class="action-count" id="favoriteCount">0</span></button>
+      <button class="language-switch" id="languageToggle" aria-label="Switch language">العربية</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="search-panel" id="searchPanel" hidden>
+    <div class="search-inner"><input id="siteSearch" type="search" placeholder="Rechercher une œuvre, un style, une couleur..." data-i18n-placeholder="searchPlaceholder"><button id="closeSearch" class="close-small" aria-label="Close">×</button></div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="#home" data-i18n="navHome">Accueil</a><a href="#artworks" data-i18n="navArtworks">Toutes les œuvres</a><a href="#collections" data-i18n="navCollections">Collections</a><a href="#categories" data-i18n="navCategories">Catégories</a><a href="#custom" data-i18n="navCustom">Création personnalisée</a><a href="#about" data-i18n="navAbout">À propos</a>
+  </nav>
+
+  <main>
+    <section class="hero section-shell" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="heroEyebrow">L’ART SE RESSENT</span></p>
+        <h1 data-i18n="heroTitle">Faites entrer<br><em>l’émotion</em> chez vous.</h1>
+        <p class="hero-description" data-i18n="heroBody">Une œuvre peut changer l’atmosphère d’une pièce. Découvrez des tableaux qui donnent vie à vos murs et apportent une émotion particulière à chaque espace.</p>
+        <div class="hero-actions"><a class="button button-dark" href="#artworks" data-i18n="exploreArtworks">Explorer les œuvres <span>↗</span></a><a class="text-link" href="#bestsellers" data-i18n="exploreBest">Découvrir les meilleures ventes <span>↗</span></a></div>
+        <div class="hero-footnote"><span class="hero-dot"></span><span data-i18n="heroFoot">L’art, à votre façon.</span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-wrap"><img src="assets/hero-artwork.webp" alt="Œuvre abstraite ARTFLOW" fetchpriority="high"></div>
+        <div class="hero-caption"><span data-i18n="heroCaption">Une présence. Une sensation. Votre espace.</span><span class="caption-index">01 / 06</span></div>
+        <span class="hero-vertical-note">ARTFLOW · MOROCCO</span>
+      </div>
+    </section>
+
+    <section class="bestsellers section-shell section-space" id="bestsellers">
+      <div class="section-heading heading-row">
+        <div><p class="eyebrow" data-i18n="bestEyebrow">LES COUPS DE CŒUR ARTFLOW</p><h2 data-i18n="bestTitle">Des œuvres qui touchent<br>au premier regard.</h2></div>
+        <div class="heading-side"><p data-i18n="bestBody">Une sélection de tableaux à découvrir, à aimer et à imaginer chez vous.</p><a class="text-link" href="#artworks" data-filter-link="bestsellers" data-i18n="seeAllBest">Voir toutes les meilleures ventes ↗</a></div>
+      </div>
+      <div class="product-grid best-grid" id="bestGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="categories-section section-space" id="categories">
+      <div class="section-shell">
+        <div class="section-heading centered-heading"><p class="eyebrow" data-i18n="categoriesEyebrow">VOTRE UNIVERS ARTISTIQUE</p><h2 data-i18n="categoriesTitle">Explorez selon votre sensibilité.</h2><p data-i18n="categoriesBody">Des univers artistiques différents, une même envie : faire de vos murs un espace qui vous ressemble.</p></div>
+        <div class="category-grid" id="categoryGrid"></div>
+      </div>
+    </section>
+
+    <section class="collections-section section-shell section-space" id="collections">
+      <div class="section-heading heading-row"><div><p class="eyebrow" data-i18n="collectionsEyebrow">SÉLECTIONS ÉDITORIALES</p><h2 data-i18n="collectionsTitle">Des ambiances,<br>des émotions, des univers.</h2></div><div class="heading-side"><p data-i18n="collectionsBody">Laissez-vous inspirer par des associations de couleurs, de formes et de styles pensées pour créer une atmosphère unique.</p></div></div>
+      <div class="collection-grid" id="collectionGrid"></div>
+    </section>
+
+    <section class="all-artworks-section section-space" id="artworks">
+      <div class="section-shell">
+        <div class="section-heading heading-row artworks-heading"><div><p class="eyebrow" data-i18n="allEyebrow">LA COLLECTION ARTFLOW</p><h2 data-i18n="allTitle">Trouvez l’œuvre<br>qui vous parle.</h2></div><div class="heading-side"><p data-i18n="allBody">Parcourez notre collection et découvrez des œuvres pour chaque ambiance et chaque envie.</p></div></div>
+        <div class="catalog-toolbar">
+          <div class="filter-pills" id="filterPills"><button class="filter-pill active" data-filter="all" data-i18n="filterAll">Tout voir</button></div>
+          <div class="catalog-tools"><span id="resultCount" class="result-count"></span><select id="sortSelect" aria-label="Sort"><option value="featured" data-i18n="sortFeatured">Sélection</option><option value="az" data-i18n="sortAZ">Nom A–Z</option></select></div>
+        </div>
+        <div class="product-grid catalog-grid" id="catalogGrid"></div>
+        <p class="empty-state" id="emptyState" hidden data-i18n="emptyResults">Aucune œuvre trouvée. Essayez un autre mot-clé.</p>
+        <div class="load-more-wrap"><button class="button button-outline" id="loadMore" data-i18n="loadMore">Voir plus d’œuvres</button></div>
+      </div>
+    </section>
+
+    <section class="pairing-section section-space" id="pairing">
+      <div class="section-shell pairing-layout">
+        <div class="pairing-copy"><p class="eyebrow" data-i18n="pairEyebrow">L’ART PREND SA PLACE</p><h2 data-i18n="pairTitle">Composez un mur<br>qui raconte quelque chose.</h2><p data-i18n="pairBody">Associez les couleurs, les formes et les ambiances. Trouvez les œuvres qui s’accordent pour créer votre propre composition.</p><a class="button button-light" href="#artworks" data-i18n="pairCta">Choisir mes œuvres <span>↗</span></a></div>
+        <div class="pairing-board"><div class="pairing-board-top"><span data-i18n="pairBoardTitle">VOTRE COMPOSITION</span><span id="pairCount">0 / 3</span></div><div id="pairPreview" class="pair-preview"><div class="pair-placeholder"><span>✳</span><p data-i18n="pairEmpty">Ajoutez jusqu’à trois œuvres depuis la collection.</p></div></div><div class="pairing-board-bottom"><button id="clearPair" class="subtle-button" data-i18n="clearSelection">Tout effacer</button><button id="pairRequest" class="text-link" data-i18n="requestComposition">Demander cette composition ↗</button></div></div>
+      </div>
+    </section>
+
+    <section class="custom-section section-shell section-space" id="custom">
+      <div class="custom-visual"><img src="assets/hero-artwork.webp" alt="Inspiration artistique ARTFLOW" loading="lazy"><span class="custom-stamp">ART<br>FLOW<br>✳</span></div>
+      <div class="custom-copy"><p class="eyebrow" data-i18n="customEyebrow">UNE ENVIE PARTICULIÈRE ?</p><h2 data-i18n="customTitle">Une idée en tête ?<br>Donnons-lui forme.</h2><p data-i18n="customBody">Vous avez une inspiration ou une envie particulière ? Partagez votre idée avec nous et imaginons ensemble une création qui vous ressemble.</p><button class="button button-dark" id="customOpen" data-i18n="customCta">Parler de mon projet <span>↗</span></button></div>
+    </section>
+
+    <section class="about-section section-space" id="about">
+      <div class="section-shell about-inner"><p class="eyebrow" data-i18n="aboutEyebrow">L’UNIVERS ARTFLOW</p><h2 data-i18n="aboutTitle">Plus qu’un tableau,<br><em>une émotion</em> au quotidien.</h2><div class="about-bottom"><p data-i18n="aboutBody">Chez ARTFLOW, nous croyons qu’un tableau ne sert pas simplement à remplir un mur. Il peut apaiser, inspirer, surprendre et faire naître une émotion. Nous imaginons l’art comme une façon de donner du caractère à vos espaces et de rendre chaque intérieur plus personnel.</p><a class="text-link" href="#home" data-i18n="aboutCta">Découvrir ARTFLOW ↗</a></div></div>
+    </section>
+
+    <section class="closing-section section-shell"><p class="closing-mark">✳</p><h2 data-i18n="closingTitle">Chaque mur a une histoire à raconter.<br><em>Laissez l’art commencer la vôtre.</em></h2><p class="brand-signature">ARTFLOW <span>—</span> <span data-i18n="signature">Tableaux uniques, émotions infinies.</span></p></section>
+  </main>
+
+  <footer class="site-footer"><div class="section-shell footer-top"><div class="footer-brand"><img src="assets/artflow-logo.svg" alt="ARTFLOW"><p data-i18n="footerLine">L’art ne décore pas seulement vos murs. Il fait naître des émotions.</p></div><div class="footer-links"><div><span class="footer-label" data-i18n="footerExplore">EXPLORER</span><a href="#artworks" data-i18n="navArtworks">Toutes les œuvres</a><a href="#collections" data-i18n="navCollections">Collections</a><a href="#bestsellers" data-i18n="navBest">Meilleures ventes</a></div><div><span class="footer-label" data-i18n="footerHelp">À DÉCOUVRIR</span><a href="#custom" data-i18n="navCustom">Création personnalisée</a><a href="#about" data-i18n="navAbout">À propos</a><a href="#pairing" data-i18n="pairTitleShort">Composer mon mur</a></div></div></div><div class="section-shell footer-bottom"><span>© <span id="year"></span> ARTFLOW</span><span data-i18n="signature">Tableaux uniques, émotions infinies.</span><span data-i18n="madeMorocco">Pensé avec sensibilité au Maroc.</span></div></footer>
+
+  <div class="modal-backdrop" id="productModal" hidden><div class="modal product-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" data-close-modal aria-label="Close">×</button><div class="modal-image"><img id="modalImage" src="" alt=""></div><div class="modal-content"><p class="eyebrow" id="modalCategory"></p><h2 id="modalTitle"></h2><p class="modal-intro" data-i18n="productIntro">Une œuvre qui donne du caractère à votre espace.</p><label class="field-label" for="sizeSelect" data-i18n="chooseSize">Choisissez votre format.</label><select id="sizeSelect"><option value="" data-i18n="selectFormat">Sélectionner un format</option><option value="60 × 40 cm|230">60 × 40 cm — 230 DH</option><option value="80 × 60 cm|280">80 × 60 cm — 280 DH</option><option value="85 × 110 cm|342">85 × 110 cm — 342 DH</option></select><p class="selected-price" id="selectedPrice" data-i18n="selectSizePrompt">Sélectionnez un format pour continuer votre commande.</p><button class="button button-dark full-button" id="orderButton" disabled data-i18n="orderWhatsapp">Commander via WhatsApp <span>↗</span></button><button class="modal-favorite" id="modalFavorite">♡ <span data-i18n="addFavorite">Ajouter aux favoris</span></button></div></div></div>
+
+  <div class="modal-backdrop" id="customModal" hidden><div class="modal form-modal" role="dialog" aria-modal="true" aria-labelledby="customModalTitle"><button class="modal-close" data-close-modal aria-label="Close">×</button><p class="eyebrow" data-i18n="customEyebrow">UNE ENVIE PARTICULIÈRE ?</p><h2 id="customModalTitle" data-i18n="customTitle">Une idée en tête ? Donnons-lui forme.</h2><p data-i18n="customFormIntro">Décrivez votre idée et partagez vos inspirations.</p><form id="customForm"><label class="field-label" for="customName" data-i18n="yourName">Votre nom</label><input id="customName" name="name" type="text" required><label class="field-label" for="customIdea" data-i18n="yourIdea">Votre idée</label><textarea id="customIdea" name="idea" rows="4" required></textarea><button class="button button-dark full-button" type="submit" data-i18n="sendRequest">Envoyer ma demande ↗</button></form></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
